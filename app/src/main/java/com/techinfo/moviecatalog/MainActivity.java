@@ -1,5 +1,6 @@
 package com.techinfo.moviecatalog;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,6 +33,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(MainActivity.this,movies.get(position).getName(),Toast.LENGTH_SHORT).show();
+                Movie movie = new Movie();
+                Intent intent  = new Intent(MainActivity.this,MovieDetailActivity.class);
+                intent.putExtra("movie",movie);
+                startActivity(intent);
+                
+                
             }
         });
     }
