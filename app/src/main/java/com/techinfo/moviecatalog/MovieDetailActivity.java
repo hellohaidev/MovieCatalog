@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 public class MovieDetailActivity extends AppCompatActivity {
-    public static final String EXTRA_MOVIE = "extra_title";
+    
     
     TextView tvTitle,tvDescription;
     ImageView imageView;
