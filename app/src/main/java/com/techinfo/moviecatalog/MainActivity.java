@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     
     private String[] dataName;
+    private String[] dataDesc;
     private TypedArray dataPhoto;
     private MovieAdapter adapter;
     private ArrayList<Movie> movies;
@@ -33,9 +34,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(MainActivity.this,movies.get(position).getName(),Toast.LENGTH_SHORT).show();
-                Movie movie = new Movie();
                 Intent intent  = new Intent(MainActivity.this,MovieDetailActivity.class);
-                intent.putExtra("movie",movie);
+                intent.putExtra("movie",movies.get(position));
                 startActivity(intent);
                 
                 
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0;i<dataName.length;i++){
             Movie movie = new Movie();
             movie.setName(dataName[i]);
+            movie.setDescription(dataDesc[i]);
             movie.setPhoto(dataPhoto.getResourceId(i,-1));
             movies.add(movie);
         }
@@ -57,5 +58,6 @@ public class MainActivity extends AppCompatActivity {
     private void prepare(){
         dataName = getResources().getStringArray(R.array.data_title);
         dataPhoto = getResources().obtainTypedArray(R.array.data_pict);
+        dataDesc = getResources().getStringArray(R.array.data_desc);
     }
 }
